@@ -231,7 +231,11 @@ func (interp *Interpreter) gta(root *node, rpath, importPath, pkgName string) ([
 				ipath = packageName
 			}
 			fmt.Println("------------------------------------------------")
-			fmt.Printf(">>>>> node 0: %s, node 1: %s, ipath: %s, name: %s\n", n.child[0], n.child[1], ipath, name)
+			fmt.Printf("node name: %s, childs: \n", n.name())
+			for k, v := range n.child {
+				fmt.Printf("   child key: %d, level: %d, rval: %s, kind: %s, ident: %s\n", k, v.level, constToString(v.rval), v.kind.String(), v.ident)
+			}
+			fmt.Printf("ipath: %s, name: %s\n", ipath, name)
 			for k, v := range interp.binPkg {
 				fmt.Printf("     binPkg key: %s, value keys: ", k)
 				for kk := range v {
