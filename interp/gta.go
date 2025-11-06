@@ -237,10 +237,7 @@ func (interp *Interpreter) gta(root *node, rpath, importPath, pkgName string) ([
 			}
 			fmt.Printf("ipath: %s, name: %s\n", ipath, name)
 			for k, v := range interp.binPkg {
-				fmt.Printf("     binPkg key: %s, value keys: ", k)
-				for kk := range v {
-					fmt.Printf("       %s ", kk)
-				}
+				fmt.Printf("     binPkg key: %s, value len: %d\n", k, len(v))
 			}
 			fmt.Println("------------------------------------------------")
 			if pkg := interp.binPkg[ipath]; pkg != nil {
