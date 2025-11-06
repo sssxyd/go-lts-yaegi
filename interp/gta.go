@@ -230,6 +230,7 @@ func (interp *Interpreter) gta(root *node, rpath, importPath, pkgName string) ([
 			if packageName := path.Base(ipath); path.Dir(ipath) == packageName {
 				ipath = packageName
 			}
+			fmt.Println("------------------------------------------------")
 			fmt.Printf(">>>>> node 0: %s, node 1: %s, ipath: %s, name: %s\n", n.child[0], n.child[1], ipath, name)
 			for k, v := range interp.binPkg {
 				fmt.Printf("     binPkg key: %s, value keys: ", k)
@@ -237,6 +238,7 @@ func (interp *Interpreter) gta(root *node, rpath, importPath, pkgName string) ([
 					fmt.Printf("       %s ", kk)
 				}
 			}
+			fmt.Println("------------------------------------------------")
 			if pkg := interp.binPkg[ipath]; pkg != nil {
 				switch name {
 				case "_": // no import of symbols
